@@ -1,4 +1,0 @@
-2016/04/11-15:25:01.600 19462 Reusing MANIFEST /home/jeremy/.config/chromium/Default/Service Worker/Database/MANIFEST-000001
-2016/04/11-15:25:01.600 19462 Recovering log #3
-2016/04/11-15:25:01.601 19462 (ignoring error) /home/jeremy/.config/chromium/Default/Service Worker/Database/000003.log: dropping 2 bytes; Corruption: missing start of fragmented record(2)
-2016/04/11-15:25:01.602 19462 Reusing old log /home/jeremy/.config/chromium/Default/Service Worker/Database/000003.log 
