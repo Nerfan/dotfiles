@@ -1,0 +1,37 @@
+{
+   "background": {
+      "scripts": [ "common.js", "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "deluminate-128.png",
+      "default_popup": "popup.html",
+      "default_title": "Deluminate (Shift+F11)"
+   },
+   "commands": {
+      "command_toggle_global": {
+         "description": "Toggle Deluminate on/off"
+      },
+      "command_toggle_site": {
+         "description": "Toggle inversion on a site"
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "deluminate.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Invert the luminance of a website to make it easier on the eyes.",
+   "icons": {
+      "128": "deluminate-128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCju2RkiXrHYup2M13T1CrIjGmV8mn+Yah9ZbFKc55mXxZF+OzSYc46jA+bY/iIk8D93mZhihlBZZLk7mL2IPm6YYj+s19VzDpOAyMKpOcB0scKS79X19z/tUIOeFLks8gGYfbrQLc4jDPxu1zSYXekR1RsjYovAQOHmLshK/5ySwIDAQAB",
+   "manifest_version": 2,
+   "name": "Deluminate",
+   "options_page": "options.html",
+   "permissions": [ "\u003Call_urls>", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.6.5",
+   "web_accessible_resources": [ "deluminate.css" ]
+}

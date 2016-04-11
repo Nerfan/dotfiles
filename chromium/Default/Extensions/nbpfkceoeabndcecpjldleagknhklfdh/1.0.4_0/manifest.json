@@ -1,0 +1,18 @@
+{
+   "content_scripts": [ {
+      "css": [ "red.css" ],
+      "js": [ "jquery.js", "redForRiot.js" ],
+      "matches": [ "*://*.reddit.com/r/leagueoflegends*" ]
+   } ],
+   "description": "Posts with comments from Rioters are turned red. Allows navigation directly to Rioter comments.",
+   "icons": {
+      "128": "icon128.png",
+      "48": "icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgPCjQYYX7/UrpapKk0Tg4iVPge/kFKN5fZZ0TWKeDGUayueTMeWDXY3bukjbiuc5xMYsktafLpVCCJOWDIKqqb28G5Zs91BGmJuHFeYfnEeCXDlhVlnpmX3nJYb/AQzsjv+FCI8Vy3Ntb4xPy+jYuMmIZ3UtsnQ3O/dd1ct3wFgvJ/qaSpkHCQo1TOTN42WHPy/zxEH9Tfg/xj+46Jc+4YHRVTmkjVt5ZqaaOfLmiFY/vx6nsQhXpUEJqxUB2v7RBKW2HqQNupjpY5wC0uwoNgXodkUskgQDxYpShj+IJRSAuVuyeN4X75mJNNjX/IvhbKxyFUUBcweO5iD8w4oMcQIDAQAB",
+   "manifest_version": 2,
+   "name": "/r/LeagueOfLegends Red Tracker",
+   "permissions": [ "tabs", "*://*.reddit.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.4"
+}

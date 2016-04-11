@@ -1,0 +1,23 @@
+{
+   "content_scripts": [ {
+      "css": [ "libs/opentip.css" ],
+      "js": [ "libs/opentip-native.min.js", "contentscript.js" ],
+      "matches": [ "*://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "description": "Replaces Twitch emote text with the actual emotes on all websites",
+   "icons": {
+      "128": "images/icon128.png",
+      "16": "images/icon16.png",
+      "48": "images/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjQz040mWTu1UfkepTkMjMkh+PN4TIOLBNSuANeZQeItip2Ay7p9bR9UsSI5sDKR/Yv24DlslhisSC64oW+tarABSlEmRQBT/tO1VwHi1MqDyKqQ/m82K74yKOWxDhPrDlG+04uLszUP1+rzTL6f88g0fqCZyvZpjHbw3lj/OTcKLDzBqN8p/pNQACInOwAHCZU47snHCHSSQpSm3jug/Vp/P+jkqt8gbZs89gP6phSzLybnAv8gBenBDyjHZGdUQDEmPOmnKT0wV+YBAuMVxw33gO4rd4NQW0Tm4J7x7+FWWxKKRGbH8lhbrqIII7+7Y9Ayxb12CKOz+a1Y9SRBN5wIDAQAB",
+   "manifest_version": 2,
+   "name": "Kappa Everywhere - Global Twitch Emotes",
+   "options_page": "options.html",
+   "permissions": [ "storage" ],
+   "short_name": "Kappa Everywhere",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.4.5"
+}

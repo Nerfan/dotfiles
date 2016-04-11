@@ -1,0 +1,15 @@
+{
+   "chrome_url_overrides": {
+      "newtab": "redirect.html"
+   },
+   "description": "Replaces New Tab page with any chosen website.",
+   "icons": {
+      "128": "icon-128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcajHEHZIkV4c1qbqjhELd0hyhHL1uT8SRGgZScZGskI2KSSK6yewDxZ+eEq2p33FCs5c6V2QfFPqL8VbmZZUd2D+ZMGfZOA1OEKaa053YPEF6smzEeePaHdCdiwZJUKT2gdBI0LqUCueC9A4TEQNfhQlDh7B6wzrlOv1xGLtSwIDAQAB",
+   "name": "Replace New Tab Page",
+   "options_page": "options.html",
+   "permissions": [ "tabs" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.2"
+}
