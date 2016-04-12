@@ -1,1 +1,0 @@
-exec xrandr --output HDMI2 --auto --right-of eDP1
