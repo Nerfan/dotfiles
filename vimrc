@@ -45,9 +45,9 @@ endif
 set relativenumber             " Show line numbers
 set number
 "set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
+set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
+set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
@@ -95,3 +95,4 @@ hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 map <C-n> :NERDTreeToggle<CR>
+let java_hightlight_java_util=1
