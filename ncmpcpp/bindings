@@ -1,0 +1,13 @@
+##########################################################
+## this is example bindings configuration file, copy it ##
+## to ~/.ncmpcpp/bindings and set up your preferences   ##
+##########################################################
+
+def_key "k"
+  scroll_up
+
+def_key "j"
+  scroll_down
+
+def_key "d"
+  delete_playlist_items
