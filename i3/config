@@ -40,6 +40,8 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # set windows to not have a title bar and have a border
 for_window [class="^.*"] border pixel 0
 
+assign [class="chromium"] workspace 2:
+
 # set default gaps
 #gaps inner 7
 #gaps outer 4
@@ -74,7 +76,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec urxvt 
 
 # start chroimium 
-bindsym $mod+c exec i3-msg workspace number 2:; exec chromium 
+bindsym $mod+c exec chromium 
 
 # adjust brightness
 bindsym $mod+F6 exec brightness down
