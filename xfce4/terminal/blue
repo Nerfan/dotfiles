@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Source Code Pro for Powerline Medium 9
+FontName=Source Code Pro for Powerline Medium 10
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=TRUE
@@ -19,9 +19,10 @@ MiscHighlightUrls=TRUE
 MiscScrollAlternateScreen=TRUE
 BackgroundDarkness=0.800000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ColorPalette=#49844040a7a7;#74747b71b6b6;#b3b3b6e3e4e4;#9898a434d3d3;#c5c5cfcfc4c4;#9292b8b8b9b9;#7d7da3a3acac;#40404d4ba7a7;#747477e4b6b6;#b3b3ba28e4e4;#9898aa60d3d3;#c5c5cfcfc4c4;#9292b8b8b9b9;#7b7badadaaaa;#40407e7da7a7;#cc64e811ffff
 Encoding=UTF-8
-ColorForeground=#f2f2e5e5bcbc
-ColorBackground=#1b061b062525
-ColorCursor=#d65bc4cd8ca1
-ColorPalette=#323230302f2f;#cccc24241d1d;#989897971a1a;#d7d799992121;#454585858888;#b1b162628686;#68689d9d6a6a;#929283837474;#1d1d20202121;#fbfb49493434;#b8b8bbbb2626;#fafabdbd2f2f;#8383a5a59898;#d3d386869b9b;#8e8ec0c07c7c;#b9b9a6a69393
+ColorCursor=#30e53aa18dbe
+ColorBackground=#1b1b1b1b2525
+ColorForeground=#ffffec00d3b6
+TabActivityColor=#02480000aaaa
 
