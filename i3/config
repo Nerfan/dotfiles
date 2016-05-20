@@ -55,7 +55,10 @@ bar {
         strip_workspace_numbers yes
         colors {
                 background #1d1d1d
-                
+                focused_workspace #1d1d1d #1d1d1d #ffffff
+                inactive_workspace #1d1d1d #1d1d1d #777777
+                active_workspace #1d1d1d #1d1d1d #ffffff
+                urgent_workspace #1d1d1d #1d1d1d #900000
         }
 }
 
@@ -198,7 +201,7 @@ bindsym $mod+0 $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move      $ws1
-bindsym $mod+Shift+at move          $ws2 
+bindsym $mod+Shift+at move          $ws2
 bindsym $mod+Shift+numbersign move  $ws3
 bindsym $mod+Shift+dollar move      $ws4
 bindsym $mod+Shift+percent move     $ws5
