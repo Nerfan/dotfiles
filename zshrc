@@ -70,6 +70,7 @@ export LC_COLLATE=C
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -87,3 +88,4 @@ export LC_COLLATE=C
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias la="ls -A"
 alias python="python3.5"
+alias gitlog="git log>log.txt; vim log.txt"
