@@ -68,14 +68,14 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " Stuff to make sure airline works
-set laststatus=2
-set t_Co=256
-set timeoutlen=50
-let g:airline_powerline_fonts = 1
-set noshowmode
+set laststatus=2 " Always show status bar
+set t_Co=256     " Use 256 colors in terminal
+set timeoutlen=50 " Update mode quicker
+let g:airline_powerline_fonts = 1 "Use powerline fonts
+set noshowmode  " The next three just remove a bunch of repeated info from the command line
 set noruler
 set noshowcmd
-let g:airline_theme='term'
+let g:airline_theme='term'  " Use terminal colors for Airine
 
 " Airline-Bufferline
 let g:airline#extensions#bufferline#enabled = 1 " Bufferline (on statusbar)
@@ -83,16 +83,12 @@ let g:bufferline_echo = 0 " Don't have bufferline echo to the command line
 
 " Airline-Tabline
 let g:airline#extensions#tabline#enabled = 1
-" configure whether or not to show buffers on the tabline
-let g:airline#extensions#tabline#show_buffers = 0
-" configure the minimum number of tabs needed to show the tabline.
-let g:airline#extensions#tabline#tab_min_count = 2
-" configure whether or not to show the close button
-let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_buffers = 0 " configure whether or not to show buffers on the tabline
+let g:airline#extensions#tabline#tab_min_count = 2 " configure the minimum number of tabs needed to show the tabline.
+let g:airline#extensions#tabline#show_close_button = 0 " configure whether or not to show the close button
 
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 map <C-n> :NERDTreeToggle<CR>
-let java_hightlight_java_util=1
