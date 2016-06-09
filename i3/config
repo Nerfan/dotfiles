@@ -29,7 +29,7 @@ set $ws6 workspace 6
 set $ws7 workspace 7
 set $ws8 workspace 8
 set $ws9 workspace 9
-set $ws10 workspace 10:♫
+set $ws10 workspace 10:♪
 
 # sets the font
 font pango:Terminal 10
@@ -53,6 +53,7 @@ bar {
         status_command i3blocks
         tray_output primary
         strip_workspace_numbers yes
+        height 23
         colors {
                 background #1d1d1d
                 focused_workspace #1d1d1d #1d1d1d #ffffff
