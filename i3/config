@@ -121,7 +121,8 @@ bindsym $mod+Shift+Q kill
 bindsym $mod+Control+l exec i3lock -c 141414
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left

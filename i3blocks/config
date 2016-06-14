@@ -137,7 +137,7 @@ border=#458588
 
 [time]
 label= 
-command=date '+%I:%M %p  '
+command=date '+%I:%M %p '
 interval=5
 border=#928374
 
