@@ -261,3 +261,4 @@ exec sudo /etc/init.d/acpid start
 exec i3-msg $ws1
 exec redshift
 exec feh --bg-scale $wallpaper
+exec xrdb -load ~/.Xresources
