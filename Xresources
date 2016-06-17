@@ -1,35 +1,45 @@
-*background:	#0c0c0c
-*color0:	#303c5c
-*color1: #cc241d
-*color2: #98971a
-*color3: #d79921
-*color4: #458588
-*color5: #b16286
-*color6: #689d6a
-*color7: #928374
-*color8: #5a6282
-*color9: #fb4934
-*color10:#b8bb26
-*color11:#fabd2f
-*color12:#83a598
-*color13:#d3869b
-*color14:#8ec07c
-*color15:#b9a693
-URxvt.foreground:	#f2e5bc
+#define fontname Terminess Powerline
 URxvt.imLocale:	"en_US.UTF-8"
 URxvt.termName:	rxvt-unicode-256color
-URxvt.boldFont:	xft:Terminess Powerline:size=10:style=Bold:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
-URxvt.boldItalicFont:	xft:Terminess Powerline:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
-URxvt.font:	xft:Terminess Powerline:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
-URxvt.imFont:	xft:Terminess Powerline:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
-URxvt.italicFont:	xft:Terminess Powerline:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
 URxvt.loginShell:	true
+URxvt.scrollBar:	false
+URxvt.secondaryScreen: true
+URxvt.secondaryScroll: true
+URxvt.mousewheel: true
+URxvt.iso14755: false
+! fonts
+URxvt.font:	xft:fontname:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
+URxvt.boldFont:	xft:fontname:size=10:style=Bold:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
+URxvt.boldItalicFont:	xft:fontname:size=10:style=Bold Italic:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
+URxvt.imFont:	xft:fontname:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
+URxvt.italicFont:	xft:fontname:size=10:style=Italic:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
+! color for urxvt
+*foreground:	#f2e5bc
+*background:	#0c0c0c
+*color0:        #2e2e2e
+*color1:        #683e3e
+*color2:        #738473
+*color3:        #747f5d
+*color4:        #567090
+*color5:        #74687e
+*color6:        #648d98
+*color7:        #837c7c
+*color8:        #444444
+*color9:        #7b4e50
+*color10:       #8ba58b
+*color11:       #849b6c
+*color12:       #5e889c
+*color13:       #8f8499
+*color14:       #8aa2ae
+*color15:       #999797
+
+! rofi settings
 rofi.bw:	0
 rofi.color-enabled:	true
-rofi.color-active:	#323232, #86A4DB, #323232, #86A4DB, #323232
-rofi.color-normal:	#323232, #86A4DB, #323232, #86A4DB, #323232
-rofi.color-urgent:	#323232, #900000, #323232, #900000, #fdf6e3
-rofi.color-window:	argb:88323232, #000000
+rofi.color-active:	argb:aa323232, #86A4DB, #323232, #86A4DB, #323232
+rofi.color-normal:	argb:aa323232, #86A4DB, #323232, #86A4DB, #323232
+rofi.color-urgent:	argb:aa323232, #900000, #323232, #900000, #fdf6e3
+rofi.color-window:	argb:aa323232, #000000
 rofi.opacity: 100
 rofi.width: 100
 rofi.eh:	1
@@ -41,4 +51,3 @@ rofi.line-margin:	0
 rofi.separator-style:	dash
 rofi.padding: 191
 rofi.yoffset: 11
-urxvt.scrollBar:	false
