@@ -117,8 +117,8 @@ bindsym $mod+F10 exec volume up
 # kill focused window
 bindsym $mod+Shift+Q kill
 
-# lock computer
-bindsym $mod+Control+l exec i3lock -c 141414
+# lock computer using i3lock-fancy
+bindsym $mod+Control+l exec lock
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
