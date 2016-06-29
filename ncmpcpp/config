@@ -1,7 +1,7 @@
 # Anything involving system settings to communicate with mpd
 mpd_host                              = "127.0.0.1"
 mpd_port                              = "6600"
-mpd_music_dir                         = "/media/removable/USB Drive/Music"
+mpd_music_dir                         = "/home/jeremy/Music"
 mpd_connection_timeout                = "5"
 
 # Visualizer
