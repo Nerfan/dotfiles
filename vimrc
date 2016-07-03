@@ -5,15 +5,28 @@
 " It is recommended to make changes after sourcing debian.vim since it alters
 " the value of the 'compatible' option.
 
-" NOTE: PLUGINS INSTALLED:
-" airline
-" fugitive
-" bufferline
-" statusline
-
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
+
+" Everything for vundle
+set nocompatible
+filetype off
+set rtp+=/etc/vim/bundle/vundle
+call vundle#begin('/etc/vim/bundle')
+" Place any and all vundle plugins here
+Plugin 'gmarik/vundle'
+Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-bufferline'
+" And Vundle plugins must come before this point
+call vundle#end('/etc/vim/bundle')
+
+" Set the colorscheme to gruvbox
+colorscheme gruvbox
 
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
@@ -26,7 +39,7 @@ syntax on
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=light
+set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -75,7 +88,7 @@ let g:airline_powerline_fonts = 1 "Use powerline fonts
 set noshowmode  " The next three just remove a bunch of repeated info from the command line
 set noruler
 set noshowcmd
-let g:airline_theme='term'  " Use terminal colors for Airine
+let g:airline_theme='gruvbox'  " Use terminal colors for Airine
 
 " Airline-Bufferline
 let g:airline#extensions#bufferline#enabled = 1 " Bufferline (on statusbar)
