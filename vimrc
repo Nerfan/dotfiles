@@ -9,6 +9,11 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
+" Enables true color in neovim
+if has("nvim")
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
 " Everything for vim-plug
 " Auto-installs vim-plug if it's not already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -31,6 +36,7 @@ Plug 'ervandew/supertab'
 call plug#end()
 
 " Set the colorscheme to gruvbox
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
 " Uncomment the next line to make Vim more Vi-compatible
@@ -70,7 +76,7 @@ set noincsearch		" Incremental search
 set nohlsearch
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
-set mouse-=a		" Enable mouse usage (all modes)
+set mouse-=a		" Disable mouse usage (all modes)
 set encoding=utf-8     " Enable supprt for unicode characters
 
 " Sets up tabbing stuff
@@ -88,17 +94,13 @@ endif
 
 " Stuff to make sure airline works
 set laststatus=2 " Always show status bar
-"set t_Co=256     " Use 256 colors in terminal
+set t_Co=256     " Use 256 colors in terminal
 set timeoutlen=50 " Update mode quicker
 let g:airline_powerline_fonts = 1 "Use powerline fonts
 set noshowmode  " The next three just remove a bunch of repeated info from the command line
 set noruler
 set noshowcmd
 let g:airline_theme='gruvbox'  " Set airline theme
-
-if has("nvim")
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
 
 " Airline-Bufferline
 let g:airline#extensions#bufferline#enabled = 1 " Bufferline (on statusbar)
@@ -114,5 +116,5 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
+" Map Control-N to toggel NERDTree
 map <C-n> :NERDTreeToggle<CR>
-let g:gruvbox_contrast_dark='hard'
