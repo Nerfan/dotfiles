@@ -35,7 +35,8 @@ Plug 'ervandew/supertab'
 " Any vim-plug plugins must come before this point
 call plug#end()
 
-" Set the colorscheme to gruvbox
+" Set the colorscheme to gruvbox (all gruvbox options must come before
+" colorscheme gruvbox)
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
@@ -116,5 +117,12 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
+" KEY MAPPINGS
 " Map Control-N to toggel NERDTree
 map <C-n> :NERDTreeToggle<CR>
+" Use Enter to exit Insert mode and let enter start a new line in normal mode
+inoremap <CR> <Esc>
+nnoremap <CR> o
+" Capitalize the last word written or the word the cursor is currently on
+inoremap <C-u> <Esc>viwUea
+nnoremap <C-u> viwUe
