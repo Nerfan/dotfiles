@@ -33,6 +33,15 @@ border_left=0
 border_right=0
 border_bottom=3
 
+# Display currently playing music
+[music]
+command=mpc status | perl -ne 'if (/\[playing\]/) {CORE::say (`mpc current|tr -d "\n"`, " ")}'
+interval=5
+align=center
+border_right=3
+border_bottom=0
+border=#ffffff
+
 # Key indicators
 #
 # Add the following bindings to i3 config file:
@@ -129,7 +138,7 @@ border=#98971a
 
 # Date Time
 #
-[time]
+[date]
 label= 
 command=date '+%b %d, %Y'
 interval=5
@@ -146,9 +155,10 @@ border=#928374
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
 #[mediaplayer]
-#instance=spotify
+#instance=mpc
 #interval=5
 #signal=10
+
 
 # OpenVPN support
 #
