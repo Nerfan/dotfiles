@@ -9,21 +9,26 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" Everything for vundle
-set nocompatible
-filetype off
-set rtp+=/etc/vim/bundle/vundle
-call vundle#begin('/etc/vim/bundle')
-" Place any and all vundle plugins here
-Plugin 'gmarik/vundle'
-Plugin 'morhetz/gruvbox'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-bufferline'
-" And Vundle plugins must come before this point
-call vundle#end('/etc/vim/bundle')
+" Everything for vim-plug
+" Auto-installs vim-plug if it's not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+" Place any and all vim-plug plugins here
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-fugitive'
+Plug 'bling/vim-bufferline'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+" Any vim-plug plugins must come before this point
+call plug#end()
 
 " Set the colorscheme to gruvbox
 colorscheme gruvbox
@@ -61,10 +66,11 @@ set number
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
+set noincsearch		" Incremental search
+set nohlsearch
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
+set mouse-=a		" Enable mouse usage (all modes)
 set encoding=utf-8     " Enable supprt for unicode characters
 
 " Sets up tabbing stuff
@@ -82,13 +88,17 @@ endif
 
 " Stuff to make sure airline works
 set laststatus=2 " Always show status bar
-set t_Co=256     " Use 256 colors in terminal
+"set t_Co=256     " Use 256 colors in terminal
 set timeoutlen=50 " Update mode quicker
 let g:airline_powerline_fonts = 1 "Use powerline fonts
 set noshowmode  " The next three just remove a bunch of repeated info from the command line
 set noruler
 set noshowcmd
-let g:airline_theme='gruvbox'  " Use terminal colors for Airine
+let g:airline_theme='gruvbox'  " Set airline theme
+
+if has("nvim")
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 " Airline-Bufferline
 let g:airline#extensions#bufferline#enabled = 1 " Bufferline (on statusbar)
@@ -105,3 +115,4 @@ hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 map <C-n> :NERDTreeToggle<CR>
+let g:gruvbox_contrast_dark='hard'
