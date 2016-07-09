@@ -105,6 +105,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # start chroimium 
 bindsym $mod+c exec chromium 
 
+# Play/pause music
+bindsym $mod+p exec mpc toggle
+
 # adjust brightness
 bindsym $mod+F6 exec brightness down
 bindsym $mod+F7 exec brightness up
