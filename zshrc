@@ -90,4 +90,6 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias la="ls -A"
 alias python="python3.5"
+alias pip="pip3"
+alias grip="python -m grip"
 alias gitlog="git log>log.txt; vim log.txt"

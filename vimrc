@@ -32,6 +32,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-bufferline'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'ervandew/supertab'
+Plug 'airblade/vim-gitgutter'
 " Any vim-plug plugins must come before this point
 call plug#end()
 
