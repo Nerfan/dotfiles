@@ -127,10 +127,8 @@ nnoremap <CR> o
 " Capitalize the last word written or the word the cursor is currently on
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
-" Window and buffer management
+" Window management
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <C-Tab> :bn<CR>
-nnoremap <C-S-Tab> :bp<CR>
