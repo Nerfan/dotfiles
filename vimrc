@@ -14,7 +14,15 @@ if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-" Everything for vim-plug
+" Source a global configuration file if available
+if filereadable("/etc/vim/vimrc.local")
+  source /etc/vim/vimrc.local
+endif
+
+""""""""""""
+" VIM-PLUG "
+""""""""""""
+
 " Auto-installs vim-plug if it's not already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -30,56 +38,30 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-bufferline'
-"Plug 'Valloric/YouCompleteMe'
-Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
+Plug 'scrooloose/syntastic'
 " Any vim-plug plugins must come before this point
 call plug#end()
 
-" Set the colorscheme to gruvbox (all gruvbox options must come before
-" colorscheme gruvbox)
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+"""""""""""""""""""""""""""
+" GENERIC GLOBAL SETTINGS "
+"""""""""""""""""""""""""""
 
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-syntax on
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
-
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent on
-endif
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set relativenumber             " Show line numbers
-set number
+set background=dark " Set colors to match a dark background
+syntax on           " Syntax highlighting
+set number          " Show line numbers
 "set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set noincsearch		" Incremental search
-set nohlsearch
+set nohlsearch      " Don't highlight search matches
 "set autowrite		" Automatically save before commands like :next and :make
-"set hidden		" Hide buffers when they are abandoned
+set hidden	    	" Hide buffers when they are abandoned
 set mouse-=a		" Disable mouse usage (all modes)
-set encoding=utf-8     " Enable supprt for unicode characters
+set encoding=utf-8  " Enable supprt for unicode characters
 
 " Sets up tabbing stuff
 set expandtab       " Tab is spaces instead of a single tab character
@@ -89,20 +71,42 @@ set shiftwidth=4    " Same
 set autoindent      " Automatically indents lines according to previous indent
 set smartindent     "
 
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+" Have Vim jump to the last position when
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Have Vim load indentation rules and plugins
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+" PEP8 specifies a max line length of 79 characters, so the line should not be crossed
+autocmd FileType python setlocal colorcolumn=80
+
+" Automatically show trailing whitespace if not typing
+autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd BufWinLeave * call clearmatches()
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=White guibg=red
+
+"""""""""""""""""""
+" PLUGIN SETTINGS "
+"""""""""""""""""""
+
+" Set the colorscheme to gruvbox (all gruvbox options must come before
+" colorscheme gruvbox)
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
 " Stuff to make sure airline works
-set laststatus=2 " Always show status bar
-set t_Co=256     " Use 256 colors in terminal
-set timeoutlen=50 " Update mode quicker
-let g:airline_powerline_fonts = 1 "Use powerline fonts
-set noshowmode  " The next three just remove a bunch of repeated info from the command line
+set laststatus=2                    " Always show status bar
+set t_Co=256                        " Use 256 colors in terminal
+set timeoutlen=50                   " Update mode quicker
+let g:airline_powerline_fonts = 1   " Use powerline fonts
+set noshowmode                      " The next three just remove a bunch of repeated info from the command line
 set noruler
 set noshowcmd
-let g:airline_theme='gruvbox'  " Set airline theme
+let g:airline_theme='gruvbox'       " Set airline theme
 
 " Airline-Bufferline
 let g:airline#extensions#bufferline#enabled = 1 " Bufferline (on statusbar)
@@ -114,16 +118,20 @@ let g:airline#extensions#tabline#show_buffers = 0 " configure whether or not to 
 let g:airline#extensions#tabline#tab_min_count = 2 " configure the minimum number of tabs needed to show the tabline.
 let g:airline#extensions#tabline#show_close_button = 0 " configure whether or not to show the close button
 
+" Syntastic
+let g:airline#extensions#syntastic#enabled = 1
+let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
+let g:syntastic_check_on_wq = 0
+
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
-" KEY MAPPINGS
-" Map Control-N to toggel NERDTree
+""""""""""""""""
+" KEY MAPPINGS "
+""""""""""""""""
+" Map Control-N to toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
-" Use Enter to exit Insert mode and let enter start a new line in normal mode
-inoremap <CR> <Esc>
-nnoremap <CR> o
 " Capitalize the last word written or the word the cursor is currently on
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
