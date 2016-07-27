@@ -38,7 +38,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-bufferline'
-Plug 'Valloric/YouCompleteMe'
+if has("nvim")
+    Plug 'Shougo/deoplete.nvim'
+endif
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
 Plug 'scrooloose/syntastic'
@@ -126,6 +128,10 @@ let g:syntastic_check_on_wq = 0
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
+let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 """"""""""""""""
 " KEY MAPPINGS "
