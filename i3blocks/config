@@ -36,7 +36,7 @@ border_bottom=3
 # Display currently playing music
 [music]
 command=mpc status | perl -ne 'if (/\[playing\]/) {CORE::say (`mpc current|tr -d "\n"`, " ")}'
-interval=5
+interval=2
 align=center
 border_right=3
 border_bottom=0
