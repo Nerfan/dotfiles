@@ -40,6 +40,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-bufferline'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
+    Plug 'zchee/deoplete-jedi'
 endif
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
@@ -146,3 +147,4 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+command NumberLines %s/^/\=printf('%3d ', line('.'))
