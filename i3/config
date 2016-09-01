@@ -23,7 +23,7 @@ set $wallpaper /home/jeremy/Pictures/aesthetic.jpg
 set $ws1 workspace 1:
 set $ws2 workspace 2:
 set $ws3 workspace 3:
-set $ws4 workspace 4
+set $ws4 workspace 4:
 set $ws5 workspace 5
 set $ws6 workspace 6
 set $ws7 workspace 7
@@ -121,7 +121,7 @@ bindsym $mod+F10 exec volume up
 bindsym $mod+Shift+Q kill
 
 # lock computer using i3lock-fancy
-bindsym $mod+Control+l exec lock
+bindsym $mod+Control+l exec lock -p
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
