@@ -124,7 +124,9 @@ let g:airline#extensions#tabline#show_close_button = 0 " configure whether or no
 " Syntastic
 let g:airline#extensions#syntastic#enabled = 1
 let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
+let g:syntastic_c_checkers = ["gcc", "clang_check"]
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
 
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
