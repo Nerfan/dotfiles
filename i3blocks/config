@@ -48,11 +48,11 @@ border=#ffffff
 #
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-[keyindicator]
-instance=CAPS
-interval=once
-signal=11
-border=#cc241d
+#[keyindicator]
+#instance=CAPS
+#interval=once
+#signal=11
+#border=#cc241d
 
 # Volume indicator
 #
@@ -66,7 +66,7 @@ instance=Master
 #instance=PCM
 interval=1
 signal=10
-border=#d79921
+border=#cc241d
 
 # Memory usage
 #
@@ -92,6 +92,7 @@ label=HOME
 #instance=/mnt/data
 interval=30
 border=#b16286
+border=#d79921
 
 # Network interface monitoring
 #
