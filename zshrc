@@ -95,6 +95,6 @@ alias pip="pip3"
 alias grip="python -m grip"
 alias gitlog="git log>log.txt; vim log.txt"
 alias vim="nvim"
-alias mopsync="rsync -r ~/Code/School/MoP/Homeworks/ jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Courses/CS243/Homeworks"
-alias mopsyncpull="rsync -r jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Courses/CS243/Homeworks/ ~/Code/School/MoP/Homeworks/"
-alias gcc='gcc -std=c99 -Wall -Wextra -pedantic'
+alias mopsync="rsync -r ~/Code/School/MoP/ jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Courses/CS243/"
+alias mopsyncpull="rsync -r jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Courses/CS243/ ~/Code/School/MoP/"
+alias gcc='gcc -ggdb -std=c99 -Wall -Wextra -pedantic'
