@@ -73,8 +73,8 @@ bar {
 for_window [class="^.*"] border pixel 0
 
 # set default gaps
-#gaps inner 7
-#gaps outer 4
+gaps inner 7
+gaps outer 4
 
 # set up a toggle to turn gaps on or off
 set $mode_gaps "Toggle gaps: (1) on (2) off"
@@ -106,10 +106,10 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec urxvt 
+#bindsym $mod+Return exec urxvt
 
-# start chroimium 
-bindsym $mod+c exec chromium 
+# start chroimium
+bindsym $mod+c exec iceweasel
 
 # Play/pause music
 bindsym $mod+p exec mpc toggle
@@ -195,8 +195,8 @@ bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ################
 # names set at top in variables section
 
-# chromium to start in workspace 2
-assign [class="chromium"] $ws2
+# iceweasel to start in workspace 2
+assign [class="iceweasel"] $ws2
 
 # switch to workspace
 bindsym $mod+1 $ws1
@@ -229,32 +229,32 @@ mode resize {
 
         # They resize the border in the direction you pressed, e.g.
         # when pressing left, the window is resized so that it iss
-        # larger on its left        
+        # larger on its left
         bindsym g       resize grow left 10 px or 10 ppt
         bindsym Shift+G resize shrink left 10 px or 10 ppt
-        
+
         bindsym j       resize grow down 10 px or 10 ppt
         bindsym Shift+J resize shrink down 10 px or 10 ppt
-        
+
         bindsym k       resize grow up 10 px or 10 ppt
         bindsym Shift+K resize shrink up 10 px or 10 ppt
-        
+
         bindsym l       resize grow right 10 px or 10 ppt
         bindsym Shift+L resize shrink right 10 px or 10 ppt
-        
+
         # same bindings, but for the arrow keys
         bindsym Left       resize grow left 10 px or 10 ppt
         bindsym Shift+Left resize shrink left 10 px or 10 ppt
-        
+
         bindsym Down       resize grow down 10 px or 10 ppt
         bindsym Shift+Down resize shrink down 10 px or 10 ppt
-        
+
         bindsym Up       resize grow up 10 px or 10 ppt
         bindsym Shift+Up resize shrink up 10 px or 10 ppt
-        
+
         bindsym Right       resize grow right 10 px or 10 ppt
         bindsym Shift+Right resize shrink right 10 px or 10 ppt
-        
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -263,7 +263,7 @@ mode resize {
 
 ######################
 ## STARTUP COMMANDS ##
-###################### 
+######################
 
 exec compton -b
 exec sudo /etc/init.d/acpid start
