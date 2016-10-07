@@ -109,7 +109,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec urxvt
 
 # start chroimium
-bindsym $mod+c exec iceweasel
+bindsym $mod+c exec firefox
 
 # Play/pause music
 bindsym $mod+p exec mpc toggle
@@ -195,8 +195,8 @@ bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ################
 # names set at top in variables section
 
-# iceweasel to start in workspace 2
-assign [class="iceweasel"] $ws2
+# firefox to start in workspace 2
+assign [class="firefox"] $ws2
 
 # switch to workspace
 bindsym $mod+1 $ws1
