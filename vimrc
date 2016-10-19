@@ -41,6 +41,7 @@ Plug 'bling/vim-bufferline'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-clang'
 endif
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
@@ -104,7 +105,7 @@ colorscheme gruvbox
 " Stuff to make sure airline works
 set laststatus=2                    " Always show status bar
 set t_Co=256                        " Use 256 colors in terminal
-set timeoutlen=50                   " Update mode quicker
+set timeoutlen=500                  " Update mode quicker
 let g:airline_powerline_fonts = 1   " Use powerline fonts
 set noshowmode                      " The next three just remove a bunch of repeated info from the command line
 set noruler
@@ -125,6 +126,7 @@ let g:airline#extensions#tabline#show_close_button = 0 " configure whether or no
 let g:airline#extensions#syntastic#enabled = 1
 let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
 let g:syntastic_c_checkers = ["gcc", "clang_check"]
+let g:syntastic_c_gcc_args = "-std=c99 -Wall, -Wextra -pedantic"
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 
@@ -132,7 +134,10 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
+" Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.6/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
