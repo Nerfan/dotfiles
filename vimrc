@@ -42,7 +42,10 @@ if has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'
     Plug 'zchee/deoplete-clang'
+    Plug 'Shougo/neoinclude.vim'
 endif
+Plug 'terryma/vim-multiple-cursors'
+Plug 'justinmk/vim-syntax-extra'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
 Plug 'scrooloose/syntastic'
@@ -97,10 +100,14 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=White guibg=red
 " PLUGIN SETTINGS "
 """""""""""""""""""
 
+" Color options
 " Set the colorscheme to gruvbox (all gruvbox options must come before
 " colorscheme gruvbox)
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+hi clear CursorLine
+hi CursorLineNr cterm=bold
+set cursorline
 
 " Stuff to make sure airline works
 set laststatus=2                    " Always show status bar
@@ -149,9 +156,15 @@ map <C-n> :NERDTreeToggle<CR>
 " Capitalize the last word written or the word the cursor is currently on
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
+" Insert a standard empty C-style for-loop
+inoremap <C-f> for (int i = 0; i <  ; i++) {<Esc>F;i
 " Window management
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 command NumberLines %s/^/\=printf('%3d ', line('.'))
+" Neovim terminal
+if has("nvim")
+    tnoremap <Esc> <C-\><C-n>
+endif
