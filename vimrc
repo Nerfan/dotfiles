@@ -49,6 +49,7 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
 Plug 'scrooloose/syntastic'
+Plug 'mjbrownie/hackertyper.vim'
 " Any vim-plug plugins must come before this point
 call plug#end()
 
@@ -143,7 +144,7 @@ hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.6/lib/libclang.so'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -157,7 +158,7 @@ map <C-n> :NERDTreeToggle<CR>
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
 " Insert a standard empty C-style for-loop
-inoremap <C-f> for (int i = 0; i <  ; i++) {<Esc>F;i
+inoremap <C-f> for (int i = 0; i < ; i++) {<Esc>F;i
 " Window management
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
