@@ -12,6 +12,7 @@ runtime! debian.vim
 " Enables true color in neovim
 if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    set termguicolors
 endif
 
 " Source a global configuration file if available
@@ -70,6 +71,7 @@ set nohlsearch      " Don't highlight search matches
 set hidden	    	" Hide buffers when they are abandoned
 set mouse-=a		" Disable mouse usage (all modes)
 set encoding=utf-8  " Enable supprt for unicode characters
+set clipboard=unnamedplus
 
 " Sets up tabbing stuff
 set expandtab       " Tab is spaces instead of a single tab character
