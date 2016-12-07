@@ -17,10 +17,11 @@
 set $mod Mod4
 
 # set my wallpaper
-set $wallpaper /home/jeremy/Pictures/aesthetic.jpg
+set $wallpaper /home/jeremy/Pictures/aesthetic-blur.jpg
 
 # set the bar background color
-set $bg $1d1d1d77
+set $bg $1d2021e6
+#set $bg $1d1d1d77
 
 # set workspace names, if any (numbers are stripped in the bar)
 set $ws1 workspace 1:
@@ -271,3 +272,6 @@ exec i3-msg $ws1
 exec redshift
 exec feh --bg-scale $wallpaper
 exec xrdb -load ~/.Xresources
+exec setxkbmap -option caps:escape
+exec xmodmap /home/jeremy/.Xmodmap
+exec /home/jeremy/.config/i3/scripts/monitorpoll&

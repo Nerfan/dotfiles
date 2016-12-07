@@ -50,7 +50,6 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
 Plug 'scrooloose/syntastic'
-Plug 'mjbrownie/hackertyper.vim'
 " Any vim-plug plugins must come before this point
 call plug#end()
 

@@ -83,8 +83,6 @@ export EDITOR='vim'
 unsetopt append_history
 unsetopt inc_append_history
 
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -103,3 +101,5 @@ alias vim="nvim"
 alias mopsync="rsync -r ~/Code/School/MoP/ jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Courses/CS243/"
 alias mopsyncpull="rsync -r jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Courses/CS243/ ~/Code/School/MoP/"
 alias gcc='gcc -ggdb -std=c99 -Wall -Wextra -pedantic'
+alias keyboard='setxkbmap -option caps:escape; xmodmap ~/.Xmodmap; xinput float 11'
+alias keyboardout='xinput reattach 11 3'
