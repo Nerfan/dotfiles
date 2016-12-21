@@ -16,9 +16,6 @@
 # set mod key to the super key
 set $mod Mod4
 
-# set my wallpaper
-set $wallpaper /home/jeremy/Pictures/aesthetic-blur.jpg
-
 # set the bar background color
 set $bg $1d2021e6
 #set $bg $1d1d1d77
@@ -270,7 +267,7 @@ exec compton -b
 exec sudo /etc/init.d/acpid start
 exec i3-msg $ws1
 exec redshift
-exec feh --bg-scale $wallpaper
+exec feh --bg-scale ~/.config/i3/wallpaper
 exec xrdb -load ~/.Xresources
 exec setxkbmap -option caps:escape
 exec xmodmap /home/jeremy/.Xmodmap
