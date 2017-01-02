@@ -60,6 +60,7 @@ call plug#end()
 set background=dark " Set colors to match a dark background
 syntax on           " Syntax highlighting
 set number          " Show line numbers
+set relativenumber  " Show distance instead of absolute numbers
 "set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
@@ -110,6 +111,7 @@ colorscheme gruvbox
 hi clear CursorLine
 hi CursorLineNr cterm=bold
 set cursorline
+hi Normal guibg=NONE ctermbg=NONE
 
 " Stuff to make sure airline works
 set laststatus=2                    " Always show status bar
