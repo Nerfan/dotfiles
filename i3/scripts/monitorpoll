@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# default monitor is eDP-1
+MONITOR=eDP-1
+
+# functions to switch from eDP-1 to HDMI and vice versa
+function ActivateHDMI {
+    echo "Switching to HDMI-1"
+    xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --off
+    MONITOR=HDMI-1
+    feh --bg-scale ~/.config/i3/wallpaper
+}
+function DeactivateHDMI {
+    echo "Switching to eDP-1"
+    xrandr --output HDMI-1 --off --output eDP-1 --auto
+    MONITOR=eDP-1
+    feh --bg-scale ~/.config/i3/wallpaper
+}
+
+# functions to check if HDMI is connected and in use
+function HDMIActive {
+    [ $MONITOR = "HDMI-1" ]
+}
+function HDMIConnected {
+    ! xrandr | grep "^HDMI-1" | grep disconnected
+}
+
+# actual script
+while true
+do
+    if ! HDMIActive && HDMIConnected
+    then
+        ActivateHDMI
+    fi
+
+    if HDMIActive && ! HDMIConnected
+    then
+        DeactivateHDMI
+    fi
+
+    sleep 1s
+done

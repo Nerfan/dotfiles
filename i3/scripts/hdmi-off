@@ -1,3 +1,0 @@
-#!/bin/sh
-xrandr --output HDMI2 --off --output eDP1 --auto
-feh --bg-scale ~/Pictures/aesthetic.jpg
