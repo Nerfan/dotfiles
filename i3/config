@@ -33,7 +33,7 @@ set $ws9 workspace 9
 set $ws10 workspace 10:♪
 
 # sets the font
-font pango:Terminal 10
+font pango:Cousine for Powerline Regular 10
 
 #########
 ## BAR ##
@@ -55,7 +55,7 @@ bar {
         status_command i3blocks
         tray_output primary
         strip_workspace_numbers yes
-        height 23
+        height 30 #23
         colors {
                 background          $bg
                 #                   border  bg      text
@@ -267,8 +267,8 @@ exec compton -b
 exec sudo /etc/init.d/acpid start
 exec i3-msg $ws1
 exec redshift
-exec feh --bg-scale ~/.config/i3/wallpaper
+exec ~/.config/i3/scripts/setwallpaper
 exec xrdb -load ~/.Xresources
 exec setxkbmap -option caps:escape
-exec xmodmap /home/jeremy/.Xmodmap
+exec --no-startup-id xmodmap /home/jeremy/.Xmodmap
 exec /home/jeremy/.config/i3/scripts/monitorpoll&
