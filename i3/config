@@ -17,7 +17,7 @@
 set $mod Mod4
 
 # set the bar background color
-set $bg $1d2021e6
+set $bg $1d2021
 #set $bg $1d1d1d77
 
 # set workspace names, if any (numbers are stripped in the bar)
@@ -67,8 +67,16 @@ bar {
         }
 }
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #d79921 #ffffff #ffffff #d79921   #d79921
+client.focused_inactive $bg     #5f676a #ffffff $bg       $bg
+client.unfocused        $bg     #222222 #888888 $bg       $bg
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 # set windows to not have a title bar and have a border
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 5
 
 # set default gaps
 gaps inner 7
