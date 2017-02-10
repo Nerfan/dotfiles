@@ -44,6 +44,7 @@ if has("nvim")
     Plug 'zchee/deoplete-jedi'
     Plug 'zchee/deoplete-clang'
     Plug 'Shougo/neoinclude.vim'
+    Plug 'artur-shaik/vim-javacomplete2'
 endif
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-syntax-extra'
@@ -69,7 +70,7 @@ set noincsearch		" Incremental search
 set nohlsearch      " Don't highlight search matches
 "set autowrite		" Automatically save before commands like :next and :make
 set hidden	    	" Hide buffers when they are abandoned
-set mouse-=a		" Disable mouse usage (all modes)
+set mouse=n 		" Enable mouse only in normal mode
 set encoding=utf-8  " Enable supprt for unicode characters
 set clipboard=unnamedplus
 
@@ -111,7 +112,7 @@ colorscheme gruvbox
 hi clear CursorLine
 hi CursorLineNr cterm=bold
 set cursorline
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " Stuff to make sure airline works
 set laststatus=2                    " Always show status bar
@@ -145,10 +146,16 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
+" javacomplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#file#enable_buffer_path = 1
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
