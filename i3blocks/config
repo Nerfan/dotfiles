@@ -24,8 +24,9 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
+color=#ebdbb2
 command=/usr/share/i3blocks/$BLOCK_NAME
-separator_block_width=7
+separator_block_width=17
 separator=false
 markup=none
 border_top=0
@@ -132,7 +133,7 @@ border=#d79921
 [battery]
 label=BAT
 label=⚡
-color=#ffffff
+color=#ebdbb2
 #instance=1
 interval=30
 border=#98971a

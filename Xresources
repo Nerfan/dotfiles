@@ -41,7 +41,7 @@ rofi.color-normal:	argb:aa323232, #86A4DB, #323232, #86A4DB, #323232
 rofi.color-urgent:	argb:aa323232, #900000, #323232, #900000, #fdf6e3
 rofi.color-window:	argb:aa323232, #000000
 rofi.opacity: 100
-rofi.width: 100
+rofi.width: 60
 rofi.eh:	1
 rofi.fixed-num-lines: true
 rofi.fake-transparency:	true
@@ -49,5 +49,5 @@ rofi.sidebar-mode: true
 rofi.hide-scrollbar:	true
 rofi.line-margin:	0
 rofi.separator-style:	dash
-rofi.padding: 191
+rofi.padding: 0
 rofi.yoffset: 11
