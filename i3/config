@@ -24,7 +24,7 @@ set $bar $1d2021aa
 set $ws1 workspace 1:
 set $ws2 workspace 2:
 set $ws3 workspace 3:
-set $ws4 workspace 4:
+set $ws4 workspace 4:
 set $ws5 workspace 5
 set $ws6 workspace 6
 set $ws7 workspace 7
@@ -87,11 +87,12 @@ gaps inner 60
 gaps outer 10
 
 # set up a toggle to turn gaps on or off
-set $mode_gaps "Toggle gaps: (1) on (2) off (-) decrease (+) increase"
+set $mode_gaps "Toggle gaps: (1) off (2) normal (3) ricey (-) decrease (+) increase"
 bindsym $mod+g mode $mode_gaps
 mode $mode_gaps {
-    bindsym 1 mode "default", gaps inner all set 8, gaps outer all set 12
-    bindsym 2 mode "default", gaps inner all set 0, gaps outer all set 0
+    bindsym 1 mode "default", gaps inner all set 0, gaps outer all set 0
+    bindsym 2 mode "default", gaps inner all set 8, gaps outer all set 12
+    bindsym 3 mode "default", gaps inner all set 60, gaps outer all set 10
     bindsym plus gaps inner all plus 5, gaps outer all plus 5
     bindsym minus gaps inner all minus 5, gaps outer all minus 5
     bindsym Return mode "default"
