@@ -33,7 +33,8 @@ set $ws9 workspace 9
 set $ws10 workspace 10:♪
 
 # sets the font
-font pango:Cousine for Powerline Regular 10
+#font pango:Cousine for Powerline Regular 10
+font pango:Terminess Powerline Regular 9
 
 #########
 ## BAR ##
@@ -45,6 +46,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        # the -t flag allows transparency with i3-gaps
         i3bar_command i3bar -t
         # dock, hide, or invisible
         mode hide
@@ -56,7 +58,7 @@ bar {
         status_command i3blocks
         tray_output primary
         strip_workspace_numbers yes
-        height 30 #23
+        height 24
         colors {
                 background          $bar
                 #                   border  bg      text
@@ -83,11 +85,11 @@ for_window [class="^.*"] border pixel 10
 hide_edge_borders smart
 
 # set default gaps
-gaps inner 60
-gaps outer 10
+gaps inner 12
+gaps outer 12
 
 # set up a toggle to turn gaps on or off
-set $mode_gaps "Toggle gaps: (1) off (2) normal (3) ricey (-) decrease (+) increase"
+set $mode_gaps "Toggle gaps: (1) off (2) normal (3) ricey (-) decrease (=) increase"
 bindsym $mod+g mode $mode_gaps
 mode $mode_gaps {
     bindsym 1 mode "default", gaps inner all set 0, gaps outer all set 0
@@ -100,15 +102,15 @@ mode $mode_gaps {
 }
 
 # set up a toggle to switch number of monitors
-set $mode_monitors  "HDMI out: (1) on (2) off"
-bindsym $mod+m mode $mode_monitors
-mode $mode_monitors {
-    bindsym 1 mode "default", exec /home/jeremy/.config/i3/scripts/hdmi-on
-    bindsym 2 mode "default", exec /home/jeremy/.config/i3/scripts/hdmi-off
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Tab move workspace to output right
-}
+#set $mode_monitors  "HDMI out: (1) on (2) off"
+#bindsym $mod+m mode $mode_monitors
+#mode $mode_monitors {
+#    bindsym 1 mode "default", exec /home/jeremy/.config/i3/scripts/hdmi-on
+#    bindsym 2 mode "default", exec /home/jeremy/.config/i3/scripts/hdmi-off
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#    bindsym Tab move workspace to output right
+#}
 
 ##############
 ## KEYBINDS ##
@@ -279,11 +281,9 @@ mode resize {
 ######################
 
 exec compton -b
-exec sudo /etc/init.d/acpid start
 exec i3-msg $ws1
 exec redshift
 exec ~/.config/i3/scripts/setwallpaper
 exec xrdb -load ~/.Xresources
-exec setxkbmap -option caps:escape
 exec --no-startup-id xmodmap /home/jeremy/.Xmodmap
 exec /home/jeremy/.config/i3/scripts/monitorpoll&

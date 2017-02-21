@@ -27,12 +27,12 @@
 color=#ebdbb2
 command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=17
-separator=false
-markup=none
+separator=true
+markup=pango
 border_top=0
 border_left=0
 border_right=0
-border_bottom=3
+border_bottom=0
 
 # Display currently playing music
 [music]
@@ -131,7 +131,6 @@ border=#d79921
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
 label=⚡
 color=#ebdbb2
 #instance=1
@@ -142,15 +141,18 @@ border=#98971a
 #
 [date]
 label= 
-command=date '+%b %d, %Y'
+command=date '+%b %d, %Y '
 interval=5
 border=#458588
+separator_block_width=0
 
 [time]
-label= 
+label=   
 command=date '+%I:%M %p '
 interval=5
-border=#928374
+border=#bdae93
+background=#bdae93
+color=#1d2021
 
 # Generic media player support
 #
