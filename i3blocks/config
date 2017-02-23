@@ -26,7 +26,7 @@
 # Each block command defaults to the script name to avoid boilerplate.
 color=#ebdbb2
 command=/usr/share/i3blocks/$BLOCK_NAME
-separator_block_width=17
+separator_block_width=29
 separator=true
 markup=pango
 border_top=0
@@ -132,7 +132,6 @@ border=#d79921
 # The battery instance defaults to 0.
 [battery]
 label=⚡
-color=#ebdbb2
 #instance=1
 interval=30
 border=#98971a
@@ -141,7 +140,7 @@ border=#98971a
 #
 [date]
 label= 
-command=date '+%b %d, %Y '
+command=date '+%b %d, %Y  '
 interval=5
 border=#458588
 separator_block_width=0
@@ -151,7 +150,7 @@ label=  
 command=date '+%I:%M %p '
 interval=5
 border=#bdae93
-background=#bdae93
+background=#fe8019
 color=#1d2021
 
 # Generic media player support

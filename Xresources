@@ -14,24 +14,34 @@ URxvt.boldItalicFont:	xft:fontname:size=10:style=Bold Italic:antialias=true,xft:
 URxvt.imFont:	xft:fontname:size=10:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
 URxvt.italicFont:	xft:fontname:size=10:style=Italic:antialias=true,xft:Inconsolata\ For\ Powerline:size=10:antialias=true
 ! color for urxvt
-*foreground:	#f2e5bc
-*background:	#0c0c0c
-*color0:        #2e2e2e
-*color1:        #683e3e
-*color2:        #738473
-*color3:        #747f5d
-*color4:        #567090
-*color5:        #74687e
-*color6:        #648d98
-*color7:        #837c7c
-*color8:        #444444
-*color9:        #7b4e50
-*color10:       #8ba58b
-*color11:       #849b6c
-*color12:       #5e889c
-*color13:       #8f8499
-*color14:       #8aa2ae
-*color15:       #999797
+*background: #1d2021
+! *background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 ! rofi settings
 rofi.bw:	0

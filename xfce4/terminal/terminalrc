@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Cousine for Powerline 10
+FontName=Terminess Powerline 8
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=FALSE
@@ -33,4 +33,6 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscCopyOnSelect=FALSE
 MiscSlimTabs=FALSE
+ShortcutsNoMenukey=TRUE
+ShortcutsNoHelpkey=TRUE
 

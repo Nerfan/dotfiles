@@ -19,6 +19,9 @@ set $mod Mod4
 # set the bar background color
 set $bar $1d2021aa
 #set $bg $1d1d1d77
+# set the window border
+set $border #fe8019
+set $inactive #1d2021
 
 # set workspace names, if any (numbers are stripped in the bar)
 set $ws1 workspace 1:
@@ -70,14 +73,12 @@ bar {
         }
 }
 
-set $border #cc241d
-set $bg #1d2021
-# class                 border  backgr. text    indicator child_border
-client.focused          $border #ffffff #ffffff $border   $border
-client.focused_inactive $bg   #5f676a #ffffff $bg       $bg
-client.unfocused        $bg     #222222 #888888 $bg       $bg
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# class                 border    backgr.   text      indicator   child_border
+client.focused          $border   #ffffff   #ffffff   $border     $border
+client.focused_inactive $inactive #5f676a   #ffffff   $inactive   $inactive
+client.unfocused        $inactive #222222   #888888   $inactive   $inactive
+client.urgent           #2f343a   #900000   #ffffff   #900000     #900000
+client.placeholder      #000000   #0c0c0c   #ffffff   #000000     #0c0c0c
 
 client.background       #ffffff
 # set windows to not have a title bar and have a border

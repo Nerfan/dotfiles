@@ -35,7 +35,6 @@ call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-bufferline'
@@ -76,13 +75,13 @@ set clipboard=unnamedplus
 
 " Sets up tabbing stuff
 set expandtab       " Tab is spaces instead of a single tab character
-set tabstop=4       " 4 spaces
-set softtabstop=4
-set shiftwidth=4    " Same
+set tabstop=4       " Tabs are viewed as 4 spaced
+set softtabstop=4   " Tabs are inserted as 4 spaces
+set shiftwidth=4    " Auto tabbing uses 4 spaces
 set autoindent      " Automatically indents lines according to previous indent
-set smartindent     "
+set smartindent     " Context sensitive indentation (e.g. Indent again after {)
 
-" Have Vim jump to the last position when
+" Have Vim jump to the last position when opening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -92,7 +91,7 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
-" PEP8 specifies a max line length of 79 characters, so the line should not be crossed
+" PEP8 specifies a max line length of 79 characters, so don't hit the line
 autocmd FileType python setlocal colorcolumn=80
 
 " Automatically show trailing whitespace if not typing
@@ -163,7 +162,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " KEY MAPPINGS "
 """"""""""""""""
 " Map Control-N to toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
 " Capitalize the last word written or the word the cursor is currently on
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
