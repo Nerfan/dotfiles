@@ -11,7 +11,6 @@ runtime! debian.vim
 
 " Enables true color in neovim
 if has("nvim")
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     set termguicolors
 endif
 
@@ -34,22 +33,25 @@ endif
 call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
 Plug 'morhetz/gruvbox'
+Plug 'andrwb/vim-lapis256'
+Plug 'sjl/badwolf'
+Plug 'dikiaap/minimalist'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
-Plug 'bling/vim-bufferline'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'
-    Plug 'zchee/deoplete-clang'
-    Plug 'Shougo/neoinclude.vim'
+"    Plug 'zchee/deoplete-clang'
+"    Plug 'Shougo/neoinclude.vim'
     Plug 'artur-shaik/vim-javacomplete2'
 endif
 Plug 'terryma/vim-multiple-cursors'
-Plug 'justinmk/vim-syntax-extra'
+"Plug 'justinmk/vim-syntax-extra'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 " Any vim-plug plugins must come before this point
 call plug#end()
 
@@ -107,6 +109,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=White guibg=red
 " Set the colorscheme to gruvbox (all gruvbox options must come before
 " colorscheme gruvbox)
 let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=0
 colorscheme gruvbox
 hi clear CursorLine
 hi CursorLineNr cterm=bold
@@ -123,30 +126,22 @@ set noruler
 set noshowcmd
 let g:airline_theme='gruvbox'       " Set airline theme
 
-" Airline-Bufferline
-let g:airline#extensions#bufferline#enabled = 1 " Bufferline (on statusbar)
-let g:bufferline_echo = 0 " Don't have bufferline echo to the command line
-
 " Airline-Tabline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0 " configure whether or not to show buffers on the tabline
+let g:airline#extensions#tabline#show_buffers = 1 " configure whether or not to show buffers on the tabline
+let g:airline#extensions#tabline#buffer_nr_show = 1 " show the index of each buffer
 let g:airline#extensions#tabline#tab_min_count = 2 " configure the minimum number of tabs needed to show the tabline.
 let g:airline#extensions#tabline#show_close_button = 0 " configure whether or not to show the close button
 
-" Syntastic
-let g:airline#extensions#syntastic#enabled = 1
-let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
-let g:syntastic_c_checkers = ["gcc", "clang_check"]
-let g:syntastic_c_gcc_args = "-std=c99 -Wall, -Wextra -pedantic"
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
+" Show Neomake errors and warnings in airline
+let g:airline#extensions#neomake#enabled = 1
+
+" Run Neomake upon every write to a buffer
+autocmd! BufWritePost * Neomake
 
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
-
-" javacomplete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -167,7 +162,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
 " Insert a standard empty C-style for-loop
-inoremap <C-f> for (int i = 0; i < ; i++) {<Esc>F;i
+inoremap <C-f> for (int i = 0; i < ; i++) {<CR>}<Esc>k$F;i
 " Window management
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
