@@ -35,4 +35,7 @@ MiscCopyOnSelect=FALSE
 MiscSlimTabs=FALSE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoHelpkey=TRUE
+BackgroundImageFile=/home/jeremy/Pictures/yuyushiki-yui.png
+BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_STRETCHED
+BackgroundImageShading=0.800000
 

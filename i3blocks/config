@@ -140,18 +140,18 @@ border=#98971a
 #
 [date]
 label= 
-command=date '+%b %d, %Y  '
+command=date '+%b %d, %Y'
 interval=5
 border=#458588
-separator_block_width=0
+#separator_block_width=0
 
 [time]
-label=   
+label= 
 command=date '+%I:%M %p '
 interval=5
-border=#bdae93
-background=#fe8019
-color=#1d2021
+#border=#bdae93
+color=#fe8019
+#color=#1d2021
 
 # Generic media player support
 #

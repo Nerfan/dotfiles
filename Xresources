@@ -61,3 +61,4 @@ rofi.line-margin:	0
 rofi.separator-style:	dash
 rofi.padding: 0
 rofi.yoffset: 11
+rofi.disable-history: true

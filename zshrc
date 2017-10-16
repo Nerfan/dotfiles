@@ -8,7 +8,7 @@
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history time)
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="my_minimal"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -106,3 +106,4 @@ alias mopsyncpull="rsync -r jsl9970@kinks.cs.rit.edu:/home/stu3/s5/jsl9970/Cours
 alias gcc='gcc -ggdb -std=c99 -Wall -Wextra -pedantic'
 alias keyboard='setxkbmap -option caps:escape; xmodmap ~/.Xmodmap; xinput float 11'
 alias keyboardout='xinput reattach 11 3'
+alias notes='date +%m.%d.md | xargs vim'

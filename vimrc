@@ -16,23 +16,35 @@ endif
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
 
 """"""""""""
 " VIM-PLUG "
 """"""""""""
 
+" Function for markdown-composer
+function! BuildComposer(info)
+    if a:info.status != 'unchanged' || a:info.force
+        if has('nvim')
+            !cargo build --release
+        else
+            !cargo build --release --no-default-features --features json-rpc
+        endif
+    endif
+endfunction
+
 " Auto-installs vim-plug if it's not already installed
 if empty(glob('~/.local/share/nvim/site/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+    silent !curl -fLo ~/.local/share/nvim/site/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
 Plug 'morhetz/gruvbox'
+Plug 'google/vim-colorscheme-primary'
 Plug 'andrwb/vim-lapis256'
 Plug 'sjl/badwolf'
 Plug 'dikiaap/minimalist'
@@ -42,8 +54,8 @@ Plug 'tpope/vim-fugitive'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'
-"    Plug 'zchee/deoplete-clang'
-"    Plug 'Shougo/neoinclude.vim'
+    "    Plug 'zchee/deoplete-clang'
+    "    Plug 'Shougo/neoinclude.vim'
     Plug 'artur-shaik/vim-javacomplete2'
 endif
 Plug 'terryma/vim-multiple-cursors'
@@ -52,6 +64,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
 "Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 " Any vim-plug plugins must come before this point
 call plug#end()
 
@@ -85,12 +98,12 @@ set smartindent     " Context sensitive indentation (e.g. Indent again after {)
 
 " Have Vim jump to the last position when opening a file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " Have Vim load indentation rules and plugins
 if has("autocmd")
-  filetype plugin indent on
+    filetype plugin indent on
 endif
 
 " PEP8 specifies a max line length of 79 characters, so don't hit the line
@@ -132,6 +145,7 @@ let g:airline#extensions#tabline#show_buffers = 1 " configure whether or not to 
 let g:airline#extensions#tabline#buffer_nr_show = 1 " show the index of each buffer
 let g:airline#extensions#tabline#tab_min_count = 2 " configure the minimum number of tabs needed to show the tabline.
 let g:airline#extensions#tabline#show_close_button = 0 " configure whether or not to show the close button
+let g:airline#extensions#tabline#fnamemod = ':t' " Only show the filename, not the path
 
 " Show Neomake errors and warnings in airline
 let g:airline#extensions#neomake#enabled = 1
@@ -152,6 +166,15 @@ let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 let g:deoplete#file#enable_buffer_path = 1
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return deoplete#mappings#smart_close_popup() . "\<CR>"
+endfunction
+
+" markdown composer
+let g:markdown_composer_open_browser = 0
+let g:markdown_composer_browser='qutebrowser --backend webengine --target window'
 
 """"""""""""""""
 " KEY MAPPINGS "
@@ -163,6 +186,8 @@ inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
 " Insert a standard empty C-style for-loop
 inoremap <C-f> for (int i = 0; i < ; i++) {<CR>}<Esc>k$F;i
+" zz fixes to the first found spelling
+nnoremap zz 1z=
 " Window management
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
