@@ -44,26 +44,21 @@ endif
 call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
 Plug 'morhetz/gruvbox'
-Plug 'google/vim-colorscheme-primary'
-Plug 'andrwb/vim-lapis256'
-Plug 'sjl/badwolf'
-Plug 'dikiaap/minimalist'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
-    Plug 'zchee/deoplete-jedi'
-    "    Plug 'zchee/deoplete-clang'
-    "    Plug 'Shougo/neoinclude.vim'
-    Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'autozimu/LanguageClient-neovim'
 endif
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'justinmk/vim-syntax-extra'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo' }
-"Plug 'scrooloose/syntastic'
+Plug 'junegunn/limelight.vim', {'on': 'Limelight' }
 Plug 'neomake/neomake'
+Plug 'junegunn/fzf', {'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 " Any vim-plug plugins must come before this point
 call plug#end()
@@ -76,13 +71,10 @@ set background=dark " Set colors to match a dark background
 syntax on           " Syntax highlighting
 set number          " Show line numbers
 set relativenumber  " Show distance instead of absolute numbers
-"set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set noincsearch		" Incremental search
 set nohlsearch      " Don't highlight search matches
-"set autowrite		" Automatically save before commands like :next and :make
 set hidden	    	" Hide buffers when they are abandoned
 set mouse=n 		" Enable mouse only in normal mode
 set encoding=utf-8  " Enable supprt for unicode characters
@@ -166,7 +158,11 @@ let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 let g:deoplete#file#enable_buffer_path = 1
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+" Close preview window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " <CR>: close popup and save indent.
+" Enter no longer autocompletes, but it does line break if the menu is open
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return deoplete#mappings#smart_close_popup() . "\<CR>"
@@ -175,6 +171,12 @@ endfunction
 " markdown composer
 let g:markdown_composer_open_browser = 0
 let g:markdown_composer_browser='qutebrowser --backend webengine --target window'
+
+" LanguageClient
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ }
 
 """"""""""""""""
 " KEY MAPPINGS "

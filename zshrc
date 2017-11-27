@@ -56,7 +56,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/jeremy/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -96,7 +96,7 @@ unsetopt inc_append_history
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias la="ls -A"
 alias ls="ls --color --group-directories-first"
-alias python="python3.5"
+alias python="python3.6"
 alias pip="pip3"
 alias grip="python -m grip"
 alias gitlog="git log>log.txt; vim log.txt"
@@ -107,3 +107,5 @@ alias gcc='gcc -ggdb -std=c99 -Wall -Wextra -pedantic'
 alias keyboard='setxkbmap -option caps:escape; xmodmap ~/.Xmodmap; xinput float 11'
 alias keyboardout='xinput reattach 11 3'
 alias notes='date +%m.%d.md | xargs vim'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
