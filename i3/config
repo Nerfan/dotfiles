@@ -246,8 +246,8 @@ mode resize {
         # They resize the border in the direction you pressed, e.g.
         # when pressing left, the window is resized so that it iss
         # larger on its left
-        bindsym g       resize grow left 10 px or 10 ppt
-        bindsym Shift+G resize shrink left 10 px or 10 ppt
+        bindsym h       resize grow left 10 px or 10 ppt
+        bindsym Shift+H resize shrink left 10 px or 10 ppt
 
         bindsym j       resize grow down 10 px or 10 ppt
         bindsym Shift+J resize shrink down 10 px or 10 ppt

@@ -9,10 +9,9 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" Enables true color in neovim
-if has("nvim")
-    set termguicolors
-endif
+" Ensure that the rtp is set up correctly (esp. for nvim)
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -35,10 +34,10 @@ function! BuildComposer(info)
 endfunction
 
 " Auto-installs vim-plug if it's not already installed
-if empty(glob('~/.local/share/nvim/site/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/bundle')
@@ -67,6 +66,10 @@ call plug#end()
 " GENERIC GLOBAL SETTINGS "
 """""""""""""""""""""""""""
 
+" Enables true color if available
+if has("termguicolors")
+    set termguicolors
+endif
 set background=dark " Set colors to match a dark background
 syntax on           " Syntax highlighting
 set number          " Show line numbers
@@ -149,34 +152,37 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#file#enable_buffer_path = 1
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
-" Close preview window when completion is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" <CR>: close popup and save indent.
-" Enter no longer autocompletes, but it does line break if the menu is open
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return deoplete#mappings#smart_close_popup() . "\<CR>"
-endfunction
+" Neovim plugins (Deoplete, LanguageClient)
+if has("nvim")
+    " Deoplete
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
+    let g:deoplete#omni_patterns = {}
+    let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+    let g:deoplete#file#enable_buffer_path = 1
+    " deoplete tab-complete
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+    " Close preview window when completion is done
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    " <CR>: close popup and save indent.
+    " Enter no longer autocompletes, but it does line break if the menu is open
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function()
+      return deoplete#mappings#smart_close_popup() . "\<CR>"
+    endfunction
+
+    " LanguageClient
+    let g:LanguageClient_autoStart = 1
+    let g:LanguageClient_serverCommands = {
+        \ 'python': ['pyls'],
+        \ }
+endif
 
 " markdown composer
 let g:markdown_composer_open_browser = 0
 let g:markdown_composer_browser='qutebrowser --backend webengine --target window'
-
-" LanguageClient
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ }
 
 """"""""""""""""
 " KEY MAPPINGS "
