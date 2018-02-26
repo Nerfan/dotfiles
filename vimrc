@@ -46,9 +46,11 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
-    Plug 'autozimu/LanguageClient-neovim'
+    Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
+	Plug 'tweekmonster/deoplete-clang2'
 endif
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'justinmk/vim-syntax-extra'
@@ -100,6 +102,8 @@ endif
 if has("autocmd")
     filetype plugin indent on
 endif
+
+autocmd BufNewFile,BufRead *.e set filetype=c
 
 " PEP8 specifies a max line length of 79 characters, so don't hit the line
 autocmd FileType python setlocal colorcolumn=80
@@ -161,6 +165,8 @@ if has("nvim")
     let g:deoplete#omni_patterns = {}
     let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
     let g:deoplete#file#enable_buffer_path = 1
+	call deoplete#custom#source("_", "matchers", ["matcher_full_fuzzy"])
+	call deoplete#custom#source('clang2', 'min_pattern_length', 2)
     " deoplete tab-complete
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
     inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
