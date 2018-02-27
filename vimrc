@@ -184,6 +184,14 @@ if has("nvim")
     let g:LanguageClient_serverCommands = {
         \ 'python': ['pyls'],
         \ }
+    augroup LC_Bindings
+        autocmd!
+        autocmd User LanguageClientStarted nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+        autocmd User LanguageClientStarted nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+    augroup END
+    command Symbols call LanguageClient_textDocument_documentSymbol()
+    command Refs call LanguageClient_textDocument_references()
+    command Rename call LanguageClient_textDocument_rename()
 endif
 
 " markdown composer
