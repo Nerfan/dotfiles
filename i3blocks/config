@@ -147,11 +147,20 @@ border=#458588
 
 [time]
 label= 
-command=date '+%I:%M %p '
+command=date '+%I:%M %p  '
 interval=5
 #border=#bdae93
 color=#fe8019
 #color=#1d2021
+separator_block_width=1
+
+[time]
+command=echo ' '
+interval=5
+#border=#bdae93
+color=#fe8019
+#color=#1d2021
+separator_block_width=0
 
 # Generic media player support
 #

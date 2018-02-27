@@ -143,7 +143,7 @@ bindsym $mod+F10 exec volume up
 bindsym $mod+Shift+Q kill
 
 # lock computer using i3lock-fancy
-bindsym $mod+Control+l exec "sleep 1; lock -p -t '' -- scrot"
+bindsym $mod+Control+l exec "lock"
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -288,3 +288,4 @@ exec ~/.config/i3/scripts/setwallpaper
 exec xrdb -load ~/.Xresources
 exec --no-startup-id xmodmap /home/jeremy/.Xmodmap
 exec /home/jeremy/.config/i3/scripts/monitorpoll&
+exec nm-applet
