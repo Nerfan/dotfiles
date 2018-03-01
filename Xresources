@@ -46,10 +46,10 @@ URxvt.italicFont:	xft:fontname:size=10:style=Italic:antialias=true,xft:Inconsola
 ! rofi settings
 rofi.bw:	0
 rofi.color-enabled:	true
-rofi.color-active:	argb:aa323232, #86A4DB, #323232, #86A4DB, #323232
-rofi.color-normal:	argb:aa323232, #86A4DB, #323232, #86A4DB, #323232
-rofi.color-urgent:	argb:aa323232, #900000, #323232, #900000, #fdf6e3
-rofi.color-window:	argb:aa323232, #000000
+rofi.color-normal:	#1d2021, #ebdbb2, #282828, #504945, #fbf1c7
+rofi.color-active:	#d79921, #1d2021, #d79921, #fabd2f, #1d2021
+rofi.color-urgent:	#cc241d, #1d2021, #cc241d, #fb4934, #1d2021
+rofi.color-window:	#1d2021, #a89984
 rofi.opacity: 100
 rofi.width: 60
 rofi.eh:	1
