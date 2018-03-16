@@ -20,7 +20,7 @@ set $mod Mod4
 set $bar #1d202100
 #set $bg $1d1d1d77
 # set the window border
-set $border #fe8019
+set $border #ebdbb2
 set $inactive #1d2021
 
 # set workspace names, if any (numbers are stripped in the bar)
