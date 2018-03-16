@@ -55,7 +55,7 @@ font-5 = FontAwesome:pixelsize=12
 
 modules-left = i3
 modules-center = time
-modules-right = cpu memory date
+modules-right = outsidetemp feelslike cpu memory date
 
 tray-position = right
 tray-padding = 1
@@ -152,6 +152,24 @@ exec = date '+%-I:%M %p'
 interval = 5
 label-font = 2
 format-foreground = #fe8019
+
+[module/outsidetemp]
+type = custom/script
+exec = ~/.config/polybar/weather.sh | awk -F'[ ,]' '{print $1}'
+format = Temp: <label>
+format-foreground = ${colors.foreground-alt}
+label-foreground = ${colors.foreground}
+format-underline = #d79921
+interval = 60
+
+[module/feelslike]
+type = custom/script
+exec = ~/.config/polybar/weather.sh | awk -F'[ ,]' '{print $2}'
+format = Feels: <label>
+format-foreground = ${colors.foreground-alt}
+label-foreground = ${colors.foreground}
+format-underline = #b16286
+interval = 60
 
 [module/date]
 type = internal/date
