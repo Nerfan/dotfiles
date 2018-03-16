@@ -20,7 +20,8 @@ set $mod Mod4
 set $bar #1d202100
 #set $bg $1d1d1d77
 # set the window border
-set $border #ebdbb2
+#set $border #ebdbb2
+set $border #076678
 set $inactive #1d2021
 
 # set workspace names, if any (numbers are stripped in the bar)
@@ -276,6 +277,15 @@ mode resize {
         bindsym Escape mode "default"
 }
 
+set $powermenu "Power options: Mod+CTRL+[(e)xit | (r)estart | (p)ower down]"
+bindsym $mod+Shift+E mode $powermenu
+mode $powermenu {
+        bindsym Return          exit
+        bindsym Escape          mode "default"
+        bindsym $mod+Control+p  exec shutdown -P now
+        bindsym $mod+Control+e  exit
+        bindsym $mod+Control+r  exec shutdown -r now
+}
 
 ######################
 ## STARTUP COMMANDS ##
