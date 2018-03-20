@@ -105,7 +105,7 @@ endif
 
 autocmd BufNewFile,BufRead *.e set filetype=c
 
-" PEP8 specifies a max line length of 79 characters, so don't hit the line
+" PEP8 specifies a max line length of 79 characters
 autocmd FileType python setlocal colorcolumn=80
 
 " Automatically show trailing whitespace if not typing

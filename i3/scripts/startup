@@ -1,0 +1,11 @@
+#!/bin/bash
+~/.config/polybar/launch.sh
+# Stuff below here is specific to my laptop; change as necessary
+compton -b
+i3-msg $ws1
+redshift
+~/.config/i3/scripts/setwallpaper
+xrdb -load ~/.Xresources
+--no-startup-id xmodmap /home/jeremy/.Xmodmap
+/home/jeremy/.config/i3/scripts/monitorpoll&
+nm-applet

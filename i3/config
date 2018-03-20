@@ -16,11 +16,7 @@
 # set mod key to the super key
 set $mod Mod4
 
-# set the bar background color
-set $bar #1d202100
-#set $bg $1d1d1d77
 # set the window border
-#set $border #ebdbb2
 set $border #076678
 set $inactive #1d2021
 
@@ -40,39 +36,9 @@ set $ws10 workspace 10:♫
 #font pango:Cousine for Powerline Regular 10
 font pango:Terminess Powerline Regular 9
 
-#########
-## BAR ##
-#########
-
-# allow i3blocks to show status of Caps Lock
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-
-# start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        # the -t flag allows transparency with i3-gaps
-#        i3bar_command i3bar -t
-#        # dock, hide, or invisible
-#        mode hide
-#        position top
-#        # disable clicking and mouse wheel to switch workspace
-#        bindsym button1 nopk
-#        bindsym button4 nopk
-#        bindsym button5 nopk
-#        status_command i3blocks
-#        tray_output primary
-#        strip_workspace_numbers yes
-#        height 24
-#        colors {
-#                background          $bar
-#                #                   border  bg      text
-#                focused_workspace   $bar    $bar    #ffffff
-#                inactive_workspace  $bar    $bar    #777777
-#                active_workspace    $bar    $bar    #ffffff
-#                urgent_workspace    $bar    $bar    #900000
-#                binding_mode        $bar    $bar    #ffffff
-#        }
-#}
+################
+## AESTHETICS ##
+################
 
 # class                 border    backgr.   text      indicator   child_border
 client.focused          $border   #ffffff   #ffffff   $border     $border
@@ -103,17 +69,6 @@ mode $mode_gaps {
     bindsym Escape mode "default"
 }
 
-# set up a toggle to switch number of monitors
-#set $mode_monitors  "HDMI out: (1) on (2) off"
-#bindsym $mod+m mode $mode_monitors
-#mode $mode_monitors {
-#    bindsym 1 mode "default", exec /home/jeremy/.config/i3/scripts/hdmi-on
-#    bindsym 2 mode "default", exec /home/jeremy/.config/i3/scripts/hdmi-off
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#    bindsym Tab move workspace to output right
-#}
-
 ##############
 ## KEYBINDS ##
 ##############
@@ -123,9 +78,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec urxvt
 
-# start chroimium
+# start web browser
 bindsym $mod+c exec qutebrowser --backend webengine
 
 # Play/pause music
@@ -143,11 +97,10 @@ bindsym $mod+F10 exec volume up
 # kill focused window
 bindsym $mod+Shift+Q kill
 
-# lock computer using i3lock-fancy
+# lock computer
 bindsym $mod+Control+l exec "lock"
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
+# start rofi
 bindsym $mod+d exec rofi -show run
 
 # change focus
@@ -204,49 +157,11 @@ bindsym $mod+z focus child
 bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-################
-## WORKSPACES ##
-################
-# names set at top in variables section
-
-# firefox to start in workspace 2
-assign [class="firefox"] $ws2
-
-# switch to workspace
-bindsym $mod+1 $ws1
-bindsym $mod+2 $ws2
-bindsym $mod+3 $ws3
-bindsym $mod+4 $ws4
-bindsym $mod+5 $ws5
-bindsym $mod+6 $ws6
-bindsym $mod+7 $ws7
-bindsym $mod+8 $ws8
-bindsym $mod+9 $ws9
-bindsym $mod+0 $ws10
-
-# move focused container to workspace
-bindsym $mod+Shift+exclam move      $ws1
-bindsym $mod+Shift+at move          $ws2
-bindsym $mod+Shift+numbersign move  $ws3
-bindsym $mod+Shift+dollar move      $ws4
-bindsym $mod+Shift+percent move     $ws5
-bindsym $mod+Shift+asciicircum move $ws6
-bindsym $mod+Shift+ampersand move   $ws7
-bindsym $mod+Shift+asterisk move    $ws8
-bindsym $mod+Shift+parenleft move   $ws9
-bindsym $mod+Shift+parenright move  $ws10
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode resize
 mode resize {
         # These bindings trigger as soon as you enter the resize mode
-
-        # They resize the border in the direction you pressed, e.g.
-        # when pressing left, the window is resized so that it iss
-        # larger on its left
         bindsym h       resize grow left 10 px or 10 ppt
         bindsym Shift+H resize shrink left 10 px or 10 ppt
 
@@ -277,25 +192,42 @@ mode resize {
         bindsym Escape mode "default"
 }
 
-set $powermenu "Power options: Mod+CTRL+[(e)xit | (r)estart | (p)ower down]"
-bindsym $mod+Shift+E mode $powermenu
-mode $powermenu {
+# exit i3 with  confirmation
+set $exitconfirm "Would you like to exit i3? Press Enter to continue."
+bindsym $mod+Shift+E mode $exitconfirm
+mode $exitconfirm {
         bindsym Return          exit
         bindsym Escape          mode "default"
-        bindsym $mod+Control+p  exec shutdown -P now
-        bindsym $mod+Control+e  exit
-        bindsym $mod+Control+r  exec shutdown -r now
 }
 
-######################
-## STARTUP COMMANDS ##
-######################
+################
+## WORKSPACES ##
+################
+# names set at top in variables section
 
-exec compton -b
-exec i3-msg $ws1
-exec redshift
-exec ~/.config/i3/scripts/setwallpaper
-exec xrdb -load ~/.Xresources
-exec --no-startup-id xmodmap /home/jeremy/.Xmodmap
-exec /home/jeremy/.config/i3/scripts/monitorpoll&
-exec nm-applet
+# switch to workspace
+bindsym $mod+1 $ws1
+bindsym $mod+2 $ws2
+bindsym $mod+3 $ws3
+bindsym $mod+4 $ws4
+bindsym $mod+5 $ws5
+bindsym $mod+6 $ws6
+bindsym $mod+7 $ws7
+bindsym $mod+8 $ws8
+bindsym $mod+9 $ws9
+bindsym $mod+0 $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move      $ws1
+bindsym $mod+Shift+at move          $ws2
+bindsym $mod+Shift+numbersign move  $ws3
+bindsym $mod+Shift+dollar move      $ws4
+bindsym $mod+Shift+percent move     $ws5
+bindsym $mod+Shift+asciicircum move $ws6
+bindsym $mod+Shift+ampersand move   $ws7
+bindsym $mod+Shift+asterisk move    $ws8
+bindsym $mod+Shift+parenleft move   $ws9
+bindsym $mod+Shift+parenright move  $ws10
+
+# Execute anything that needs to happen on startup
+~/.config/i3/scripts/startup
