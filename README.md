@@ -5,6 +5,7 @@ Dependencies:
 - [i3-blocks-gaps](https://github.com/Airblader/i3blocks-gaps)
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [powerline fonts](https://github.com/powerline/fonts)
+- polybar
 - xcfe4-terminal
 - compton
 - redshift
