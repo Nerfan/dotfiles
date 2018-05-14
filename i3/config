@@ -17,7 +17,7 @@
 set $mod Mod4
 
 # set the window border
-set $border #076678
+set $border #ebdbb2
 set $inactive #1d2021
 
 # set workspace names, if any (numbers are stripped in the bar)
@@ -41,9 +41,9 @@ font pango:Terminess Powerline Regular 9
 ################
 
 # class                 border    backgr.   text      indicator   child_border
-client.focused          $border   #ffffff   #ffffff   $border     $border
-client.focused_inactive $inactive #5f676a   #ffffff   $inactive   $inactive
-client.unfocused        $inactive #222222   #888888   $inactive   $inactive
+client.focused          $border   $border   #ffffff   $border     $border
+client.focused_inactive $inactive $inactive #ffffff   $inactive   $inactive
+client.unfocused        $inactive $inactive #888888   $inactive   $inactive
 client.urgent           #2f343a   #900000   #ffffff   #900000     #900000
 client.placeholder      #000000   #0c0c0c   #ffffff   #000000     #0c0c0c
 
@@ -55,6 +55,8 @@ hide_edge_borders smart
 # set default gaps
 gaps inner 12
 gaps outer 12
+#gaps inner 50
+#gaps outer 0
 
 # set up a toggle to turn gaps on or off
 set $mode_gaps "Toggle gaps: (1) off (2) normal (3) ricey (-) decrease (=) increase"
@@ -99,6 +101,7 @@ bindsym $mod+Shift+Q kill
 
 # lock computer
 bindsym $mod+Control+l exec "lock"
+#bindsym $mod+Control+l exec "i3lock -c 1b2021"
 
 # start rofi
 bindsym $mod+d exec rofi -show run
@@ -126,6 +129,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# move focused window to different monitor
+bindsym $mod+Shift+bracketleft move workspace to output left
+bindsym $mod+Shift+bracketright move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -157,11 +164,50 @@ bindsym $mod+z focus child
 bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+################
+## WORKSPACES ##
+################
+# names set at top in variables section
+
+# firefox to start in workspace 2
+assign [class="firefox"] $ws2
+for_window [class="com-rocsoft-qdirect-client-QDirectClient"] floating enable
+
+# switch to workspace
+bindsym $mod+1 $ws1
+bindsym $mod+2 $ws2
+bindsym $mod+3 $ws3
+bindsym $mod+4 $ws4
+bindsym $mod+5 $ws5
+bindsym $mod+6 $ws6
+bindsym $mod+7 $ws7
+bindsym $mod+8 $ws8
+bindsym $mod+9 $ws9
+bindsym $mod+0 $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move      $ws1
+bindsym $mod+Shift+at move          $ws2
+bindsym $mod+Shift+numbersign move  $ws3
+bindsym $mod+Shift+dollar move      $ws4
+bindsym $mod+Shift+percent move     $ws5
+bindsym $mod+Shift+asciicircum move $ws6
+bindsym $mod+Shift+ampersand move   $ws7
+bindsym $mod+Shift+asterisk move    $ws8
+bindsym $mod+Shift+parenleft move   $ws9
+bindsym $mod+Shift+parenright move  $ws10
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode resize
 mode resize {
         # These bindings trigger as soon as you enter the resize mode
+
+        # They resize the border in the direction you pressed, e.g.
+        # when pressing left, the window is resized so that it iss
+        # larger on its left
         bindsym h       resize grow left 10 px or 10 ppt
         bindsym Shift+H resize shrink left 10 px or 10 ppt
 
@@ -200,34 +246,5 @@ mode $exitconfirm {
         bindsym Escape          mode "default"
 }
 
-################
-## WORKSPACES ##
-################
-# names set at top in variables section
-
-# switch to workspace
-bindsym $mod+1 $ws1
-bindsym $mod+2 $ws2
-bindsym $mod+3 $ws3
-bindsym $mod+4 $ws4
-bindsym $mod+5 $ws5
-bindsym $mod+6 $ws6
-bindsym $mod+7 $ws7
-bindsym $mod+8 $ws8
-bindsym $mod+9 $ws9
-bindsym $mod+0 $ws10
-
-# move focused container to workspace
-bindsym $mod+Shift+exclam move      $ws1
-bindsym $mod+Shift+at move          $ws2
-bindsym $mod+Shift+numbersign move  $ws3
-bindsym $mod+Shift+dollar move      $ws4
-bindsym $mod+Shift+percent move     $ws5
-bindsym $mod+Shift+asciicircum move $ws6
-bindsym $mod+Shift+ampersand move   $ws7
-bindsym $mod+Shift+asterisk move    $ws8
-bindsym $mod+Shift+parenleft move   $ws9
-bindsym $mod+Shift+parenright move  $ws10
-
 # Execute anything that needs to happen on startup
-~/.config/i3/scripts/startup
+exec ~/.config/i3/scripts/startup
