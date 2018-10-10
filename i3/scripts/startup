@@ -7,5 +7,5 @@ redshift
 ~/.config/i3/scripts/setwallpaper
 xrdb -load ~/.Xresources
 --no-startup-id xmodmap /home/jeremy/.Xmodmap
-/home/jeremy/.config/i3/scripts/monitorpoll&
 nm-applet
+/home/jeremy/.config/i3/scripts/monitorpoll&

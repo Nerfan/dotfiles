@@ -10,7 +10,7 @@ MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
 MiscToolbarDefault=FALSE
-MiscConfirmClose=TRUE
+MiscConfirmClose=FALSE
 MiscCycleTabs=TRUE
 MiscTabCloseButtons=TRUE
 MiscTabCloseMiddleClick=TRUE
@@ -38,4 +38,6 @@ ShortcutsNoHelpkey=TRUE
 BackgroundImageFile=/home/jeremy/Pictures/yuyushiki-yui.png
 BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_STRETCHED
 BackgroundImageShading=0.800000
+MiscShowRelaunchDialog=TRUE
+MiscNewTabAdjacent=FALSE
 

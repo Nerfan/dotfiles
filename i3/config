@@ -17,7 +17,7 @@
 set $mod Mod4
 
 # set the window border
-set $border #076678
+set $border #ebdbb2
 set $inactive #1d2021
 
 # set workspace names, if any (numbers are stripped in the bar)
@@ -230,4 +230,4 @@ bindsym $mod+Shift+parenleft move   $ws9
 bindsym $mod+Shift+parenright move  $ws10
 
 # Execute anything that needs to happen on startup
-~/.config/i3/scripts/startup
+exec ~/.config/i3/scripts/startup
