@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+i3lock -i ~/Pictures/gruvbox-small.png --indpos +900:+400 --indicator \
+    -k --timepos +683:+150 --timecolor=ebdbb2ff --timesize=64 \
+    --datepos tx:ty+45 --datecolor=ebdbb2ff --datesize=28 \
+    --insidecolor=ffffff00 --ringcolor=fabd2fff --keyhlcolor=98971aff --linecolor=282828ff \
+    --bshlcolor=fb4934ff --radius=70 \
+    --layoutsize=18 --verifsize=18 --wrongsize=18 --greetersize=18 \
+    --insidevercolor=458588ff --ringvercolor=076678ff \
+    --insidewrongcolor=fb4934ff --ringwrongcolor=cc241dff
