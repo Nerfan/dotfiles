@@ -44,13 +44,12 @@ call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
-	Plug 'tweekmonster/deoplete-clang2'
 endif
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'justinmk/vim-syntax-extra'
@@ -160,13 +159,10 @@ hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 if has("nvim")
     " Deoplete
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
-    let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
     let g:deoplete#omni_patterns = {}
     let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
     let g:deoplete#file#enable_buffer_path = 1
 	call deoplete#custom#source("_", "matchers", ["matcher_full_fuzzy"])
-	call deoplete#custom#source('clang2', 'min_pattern_length', 2)
     " deoplete tab-complete
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
     inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
@@ -198,11 +194,15 @@ endif
 let g:markdown_composer_open_browser = 0
 let g:markdown_composer_browser='qutebrowser --backend webengine --target window'
 
+" netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
 """"""""""""""""
 " KEY MAPPINGS "
 """"""""""""""""
 " Map Control-N to toggle NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :Explore<CR>
 " Capitalize the last word written or the word the cursor is currently on
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
