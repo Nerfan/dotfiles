@@ -37,7 +37,7 @@ underline-size = 2
 underline-color = #00f
 
 border-size = 100
-border-top-size = 40
+border-top-size = 20
 border-bottom-size = 0
 border-color = #00000000
 
@@ -46,11 +46,18 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Hack:pixelsize=12
-font-1 = Hack:style=bold:pixelsize=16;2
-font-2 = unifont:fontformat=truetype:size=6:heavy;-2
-font-3 = siji:pixelsize=10
-font-4 = FontAwesome:pixelsize=12
+font-0 = Terminess Powerline:size=12
+font-1 = Hack:pixelsize=12
+font-2 = Hack:style=bold:pixelsize=16;2
+font-3 = unifont:fontformat=truetype:size=6:heavy;-2
+font-4 = siji:pixelsize=10
+font-5 = FontAwesome:pixelsize=12
+# Non-laptop
+#font-0 = Hack:pixelsize=12
+#font-1 = Hack:style=bold:pixelsize=16;2
+#font-2 = unifont:fontformat=truetype:size=6:heavy;-2
+#font-3 = siji:pixelsize=10
+#font-4 = FontAwesome:pixelsize=12
 
 modules-left = i3
 modules-center = time
