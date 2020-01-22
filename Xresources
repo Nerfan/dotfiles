@@ -43,22 +43,4 @@ URxvt.italicFont:	xft:fontname:size=10:style=Italic:antialias=true,xft:Inconsola
 *color7:  #a89984
 *color15: #ebdbb2
 
-! rofi settings
-rofi.bw:	0
-rofi.color-enabled:	true
-rofi.color-normal:	#1d2021, #ebdbb2, #282828, #504945, #fbf1c7
-rofi.color-active:	#d79921, #1d2021, #d79921, #fabd2f, #1d2021
-rofi.color-urgent:	#cc241d, #1d2021, #cc241d, #fb4934, #1d2021
-rofi.color-window:	#1d2021, #a89984
-rofi.opacity: 100
-rofi.width: 60
-rofi.eh:	1
-rofi.fixed-num-lines: true
-rofi.fake-transparency:	true
-rofi.sidebar-mode: true
-rofi.hide-scrollbar:	true
-rofi.line-margin:	0
-rofi.separator-style:	dash
-rofi.padding: 0
-rofi.yoffset: 11
-rofi.disable-history: true
+Xft.dpi: 144

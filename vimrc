@@ -44,7 +44,7 @@ call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 if has("nvim")
@@ -194,11 +194,15 @@ endif
 let g:markdown_composer_open_browser = 0
 let g:markdown_composer_browser='qutebrowser --backend webengine --target window'
 
+" netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
 """"""""""""""""
 " KEY MAPPINGS "
 """"""""""""""""
 " Map Control-N to toggle NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :Explore<CR>
 " Capitalize the last word written or the word the cursor is currently on
 inoremap <C-u> <Esc>viwUea
 nnoremap <C-u> viwUe
