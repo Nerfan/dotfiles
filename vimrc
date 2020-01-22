@@ -50,7 +50,6 @@ Plug 'majutsushi/tagbar'
 if has("nvim")
     Plug 'Shougo/deoplete.nvim'
     Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
-	Plug 'tweekmonster/deoplete-clang2'
 endif
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'justinmk/vim-syntax-extra'
@@ -160,13 +159,10 @@ hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 if has("nvim")
     " Deoplete
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
-    let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/'
     let g:deoplete#omni_patterns = {}
     let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
     let g:deoplete#file#enable_buffer_path = 1
 	call deoplete#custom#source("_", "matchers", ["matcher_full_fuzzy"])
-	call deoplete#custom#source('clang2', 'min_pattern_length', 2)
     " deoplete tab-complete
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
     inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
