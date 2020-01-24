@@ -96,7 +96,7 @@ unsetopt inc_append_history
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias la="ls -A"
 alias ls="ls --color --group-directories-first"
-alias python="python3.6"
+alias python="python3"
 alias pip="pip3"
 alias grip="python -m grip"
 alias gitlog="git log>log.txt; vim log.txt"
@@ -107,5 +107,6 @@ alias gcc='gcc -ggdb -std=c99 -Wall -Wextra -pedantic'
 alias keyboard='setxkbmap -option caps:escape; xmodmap ~/.Xmodmap; xinput float 11'
 alias keyboardout='xinput reattach 11 3'
 alias notes='date +%m.%d.%y.md | xargs vim'
+eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
