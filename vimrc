@@ -172,7 +172,7 @@ if has("nvim")
     " Enter no longer autocompletes, but it does line break if the menu is open
     inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
     function! s:my_cr_function()
-      return deoplete#mappings#smart_close_popup() . "\<CR>"
+      return deoplete#smart_close_popup() . "\<CR>"
     endfunction
 
     " LanguageClient
