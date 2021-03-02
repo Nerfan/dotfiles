@@ -182,7 +182,7 @@ if has("nvim")
         \ }
     augroup LC_Bindings
         autocmd!
-        autocmd User LanguageClientStarted nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+        autocmd User LanguageClientStarted nnoremap <silent> <C-k> :call LanguageClient_textDocument_hover()<CR>
         autocmd User LanguageClientStarted nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
     augroup END
     command Symbols call LanguageClient_textDocument_documentSymbol()
