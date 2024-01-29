@@ -42,7 +42,7 @@ endif
 
 call plug#begin('~/.vim/bundle')
 " Place any and all vim-plug plugins here
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
@@ -121,10 +121,11 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=White guibg=red
 " colorscheme gruvbox)
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italic=0
-colorscheme gruvbox
 hi clear CursorLine
 hi CursorLineNr cterm=bold
 set cursorline
+colorscheme gruvbox
+hi! link Tag GruvboxOrange
 "hi Normal guibg=NONE ctermbg=NONE
 
 " Stuff to make sure airline works
