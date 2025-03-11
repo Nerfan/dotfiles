@@ -50,10 +50,6 @@ configuration {
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
 /*	theme: ;*/
-	color-normal: "#cc1d2021, #ccebdbb2, #cc282828, #cc504945, #ccfbf1c7";
-	color-urgent: "#cccc241d, #cc1d2021, #cccc241d, #ccfb4934, #cc1d2021";
-	color-active: "#ccd79921, #cc1d2021, #ccd79921, #ccfabd2f, #cc1d2021";
-	color-window: "#cc1d2021, #cca89984";
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	pid: "/run/user/1000/rofi.pid";*/
@@ -137,4 +133,62 @@ configuration {
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
 
+/*
+ *! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+    color-normal: "#cc1d2021, #ccebdbb2, #cc282828, #cc504945, #ccfbf1c7";
+	color-urgent: "#cccc241d, #cc1d2021, #cccc241d, #ccfb4934, #cc1d2021";
+	color-active: "#ccd79921, #cc1d2021, #ccd79921, #ccfabd2f, #cc1d2021";
+!                  'background', 'border', 'separator'
+	color-window: "#cc1d2021, #cca89984";
+*/
+
+element normal.normal {
+    background-color: #1d2021cc;
+    text-color: #ebdbb2cc;
+}
+element alternate.normal {
+    background-color: #282828cc;
+    text-color: #ebdbb2cc;
+}
+element selected.normal {
+    background-color: #504945cc;
+    text-color: #fbf1c7cc;
+}
+
+element urgent.normal {
+    background-color: #cc241dcc;
+    text-color: #1d2021cc;
+}
+element alternate.urgent {
+    background-color: #cc241dcc;
+    text-color: #1d2021cc;
+}
+element selected.urgent {
+    background-color: #fb4934cc;
+    text-color: #1d2021cc;
+}
+
+element active.normal {
+    background-color: #d79921cc;
+    text-color: #1d2021cc;
+}
+element alternate.active {
+    background-color: #d79921cc;
+    text-color: #1d2021cc;
+}
+element selected.active {
+    background-color: #fabd2fcc;
+    text-color: #1d2021cc;
+}
+
+element window {
+    background-color: #1d2021cc;
+    border: #a89984cc;
+}
+window {
+    background-color: #1d2021cc;
+}
+prompt, inputbar, textbox, entry {
+    text-color: #ebdbb2cc;
+}
 /* vim:ft=css
